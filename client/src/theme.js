@@ -28,6 +28,7 @@ export const tokensDark = {
           900: "#0c050f"
 },
   secondary :{
+    // white
           100: "#f8f5fb",
           200: "#f1ecf7",
           300: "#eae2f4",
