@@ -1,3 +1,5 @@
+![image](https://github.com/ShrutiGossain/HRhorizon/assets/130658216/a3821fa9-670d-485d-bb75-bc121bf922e4)
+
 # HRhorizon
 HRHorizon is a comprehensive online platform designed to provide detailed insights into employee data within an organization. With two distinct interfaces catering to both users and administrators, HRHorizon offers a user-friendly experience for accessing and managing vital workforce information.
 
