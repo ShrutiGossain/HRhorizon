@@ -1,3 +1,9 @@
+<div align="center">
+  
+  <img src="https://"C:\Users\shrut\Downloads\HR logo.ico"/logo-removebg-preview.png" alt="medicare-logo" width="400"/>
+
+</div>
+
 # HRhorizon
 HRHorizon is a comprehensive online platform designed to provide detailed insights into employee data within an organization. With two distinct interfaces catering to both users and administrators, HRHorizon offers a user-friendly experience for accessing and managing vital workforce information.
 
