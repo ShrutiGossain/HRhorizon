@@ -1,6 +1,6 @@
 <div align="center">
   
-  <img src="https://"C:\Users\shrut\Downloads\HR logo.ico"/logo-removebg-preview.png" alt="medicare-logo" width="400"/>
+  <img src= "C:\Users\shrut\Downloads\HR logo.ico/logo-removebg-preview.png" alt="medicare-logo" width="400"/>
 
 </div>
 
