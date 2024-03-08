@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Box,
   Drawer,
@@ -26,150 +26,155 @@ import {
   TrendingUpOutlined,
   PieChartOutlined,
 } from "@mui/icons-material";
-
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
 
 const navItems = [
   {
-    text : "DashBoard",
-    icon : <HomeOutlined />
+    text: "Dashboard",
+    icon: <HomeOutlined />,
   },
   {
-    text : "Client Facing",
-    icon : null,
+    text: "Client Facing",
+    icon: null,
   },
   {
-    text : "Products",
-    icon : <ShoppingCartOutlined />
+    text: "Products",
+    icon: <ShoppingCartOutlined />,
   },
   {
-    text : "Customers",
-    icon : <Groups2Outlined />
+    text: "Customers",
+    icon: <Groups2Outlined />,
   },
   {
-    text : "Transactions",
-    icon : <ReceiptLongOutlined />
+    text: "Transactions",
+    icon: <ReceiptLongOutlined />,
   },
   {
-    text : "Geography",
-    icon : <PublicOutlined />
+    text: "Geography",
+    icon: <PublicOutlined />,
   },
   {
-    text : "Sales",
-    icon : null,
+    text: "Sales",
+    icon: null,
   },
   {
-    text : "Overview",
-    icon : <PointOfSaleOutlined />
+    text: "Overview",
+    icon: <PointOfSaleOutlined />,
   },
   {
-    text : "Daily",
-    icon : <TodayOutlined />
+    text: "Daily",
+    icon: <TodayOutlined />,
   },
   {
-    text : "Monthly",
-    icon : <CalendarMonthOutlined />
+    text: "Monthly",
+    icon: <CalendarMonthOutlined />,
   },
   {
-    text : "BreakDown",
-    icon : <PieChartOutlined/>
+    text: "Breakdown",
+    icon: <PieChartOutlined />,
   },
   {
-    text : "Management",
-    icon : null,
+    text: "Management",
+    icon: null,
   },
   {
-    text : "Admin",
-    icon : <AdminPanelSettingsOutlined />
+    text: "Admin",
+    icon: <AdminPanelSettingsOutlined />,
   },
   {
-    text : "Performance",
-    icon : <TrendingUpOutlined/>
-  }
-]
+    text: "Performance",
+    icon: <TrendingUpOutlined />,
+  },
+];
 
 const Sidebar = ({
+  user,
   drawerWidth,
   isSidebarOpen,
   setIsSidebarOpen,
   isNonMobile,
 }) => {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const [active, setActive] = useState("");
   const navigate = useNavigate();
   const theme = useTheme();
 
   useEffect(() => {
     setActive(pathname.substring(1));
-  }, [pathname])
+  }, [pathname]);
 
-  return <Box component="nav">
-    {isSidebarOpen && (
-      <Drawer 
-      open = {isSidebarOpen}
-      onClose = {() => setIsSidebarOpen(false)}
-      varient = 'persistent'
-      anchor = 'left'
-      sx={{
-        width: drawerWidth,
-        "& .MuiDrawer-paper": {
-          color: theme.palette.secondary[200],
-          backgroundColor: theme.palette.background.alt,
-          boxSixing: "border-box",
-          borderWidth: isNonMobile ? 0 : "2px",
-          width: drawerWidth,
-        },
-      }}
-      >
-        <Box width = "100%">
-          <Box m="1.5rem 2rem 2rem 3rem">
-            <FlexBetween color= {theme.palette.secondary.main}>
-            <Box display="flex" alignItems="center" gap="1.5rem" >
-              <Typography variant="h4" fontWeight="bold">
-                HRhorizon
-              </Typography>
-            </Box>
-            {!isNonMobile && (
+  return (
+    <Box component="nav">
+      {isSidebarOpen && (
+        <Drawer
+          open={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+          variant="persistent"
+          anchor="left"
+          sx={{
+            width: drawerWidth,
+            "& .MuiDrawer-paper": {
+              color: theme.palette.secondary[200],
+              backgroundColor: theme.palette.background.alt,
+              boxSixing: "border-box",
+              borderWidth: isNonMobile ? 0 : "2px",
+              width: drawerWidth,
+            },
+          }}
+        >
+          <Box width="100%">
+            <Box m="1.5rem 2rem 2rem 3rem">
+              <FlexBetween color={theme.palette.secondary.main}>
+                <Box display="flex" alignItems="center" gap="0.5rem">
+                  <Typography variant="h4" fontWeight="bold">
+                    HRhori
+                  </Typography>
+                </Box>
+                {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                     <ChevronLeft />
                   </IconButton>
                 )}
-            </FlexBetween>
-          </Box>
-          <List>
-          {navItems.map(({ text, icon }) => {
+              </FlexBetween>
+            </Box>
+            <List>
+              {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
                     <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
                       {text}
                     </Typography>
-                  )
+                  );
                 }
                 const lcText = text.toLowerCase();
 
                 return (
                   <ListItem key={text} disablePadding>
                     <ListItemButton
-                    onClick={ () =>
-                     {navigate(`${lcText}`); 
-                     setActive(lcText);
-                     }}
-                     sx={{
-                      backgroundColor: active === lcText ? 
-                      theme.palette.secondary[300] :
-                      'transparent' ,
-                      color : active === lcText ?
-                          theme.palette.primary[600] :
-                          theme.palette.secondary[100],
-                     }}>
+                      onClick={() => {
+                        navigate(`/${lcText}`);
+                        setActive(lcText);
+                      }}
+                      sx={{
+                        backgroundColor:
+                          active === lcText
+                            ? theme.palette.secondary[300]
+                            : "transparent",
+                        color:
+                          active === lcText
+                            ? theme.palette.primary[600]
+                            : theme.palette.secondary[100],
+                      }}
+                    >
                       <ListItemIcon
                         sx={{
-                          ml : '2rem',
-                          color : active === lcText ?
-                          theme.palette.primary[600] :
-                          theme.palette.secondary[200],
+                          ml: "2rem",
+                          color:
+                            active === lcText
+                              ? theme.palette.primary[600]
+                              : theme.palette.secondary[200],
                         }}
                       >
                         {icon}
@@ -181,12 +186,15 @@ const Sidebar = ({
                     </ListItemButton>
                   </ListItem>
                 );
-            })}
-          </List>
-        </Box>
-      </Drawer>
-      )}
-  </Box>
-}
+              })}
+            </List>
+          </Box>
 
-export default Sidebar
+          
+        </Drawer>
+      )}
+    </Box>
+  );
+};
+
+export default Sidebar;
