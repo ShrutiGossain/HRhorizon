@@ -1,4 +1,11 @@
-# HRhorizon
+<h1 align="center">HRhorizon</h1>
+
+<div align="center">
+  
+<img width="242" alt="image" src="https://github.com/ShrutiGossain/HRhorizon/assets/130658216/1b5e01eb-4771-4a79-97be-9e47ecaab361/logo-removebg-preview">
+
+</div>
+
 HRHorizon is a comprehensive online platform designed to provide detailed insights into employee data within an organization. With two distinct interfaces catering to both users and administrators, HRHorizon offers a user-friendly experience for accessing and managing vital workforce information.
 
 For users, HRHorizon offers a streamlined interface where they can securely log in to access a wealth of statistical information pertaining to the organization's workforce. This includes details such as the total number of employees, demographic breakdowns including age and gender ratios, attrition rates, and more. The platform presents this data in various formats, including reports, graphs, and charts, ensuring that users can easily digest and interpret the information for informed decision-making.
