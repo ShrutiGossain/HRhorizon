@@ -2,7 +2,7 @@
 
 <div align="center">
   
-![image](https://github.com/ShrutiGossain/HRhorizon/assets/130658216/a3821fa9-670d-485d-bb75-bc121bf922e4)
+<img width="242" alt="image" src="https://github.com/ShrutiGossain/HRhorizon/assets/130658216/1b5e01eb-4771-4a79-97be-9e47ecaab361">
 
 </div>
 
