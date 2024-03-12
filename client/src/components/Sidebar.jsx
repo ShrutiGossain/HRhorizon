@@ -15,9 +15,9 @@ import {
   ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
-  ShoppingCartOutlined,
+  // ShoppingCartOutlined,
   Groups2Outlined,
-  ReceiptLongOutlined,
+  // ReceiptLongOutlined,
   PublicOutlined,
   PointOfSaleOutlined,
   TodayOutlined,
@@ -25,6 +25,7 @@ import {
   AdminPanelSettingsOutlined,
   TrendingUpOutlined,
   PieChartOutlined,
+  PeopleAltOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -40,23 +41,19 @@ const navItems = [
     icon: null,
   },
   {
-    text: "Products",
-    icon: <ShoppingCartOutlined />,
+    text: "Attrition",
+    icon: <PeopleAltOutlined />,
   },
   {
-    text: "Customers",
+    text: "Employees",
     icon: <Groups2Outlined />,
-  },
-  {
-    text: "Transactions",
-    icon: <ReceiptLongOutlined />,
   },
   {
     text: "Geography",
     icon: <PublicOutlined />,
   },
   {
-    text: "Sales",
+    text: "Employee Info",
     icon: null,
   },
   {
