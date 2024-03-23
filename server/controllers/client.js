@@ -7,7 +7,9 @@ export const getAttritions = async (req, res) => {
 
         const attritionsWithStats = await Promise.all(
             attritions.map(async (attrition) => {
-                const stat = await AttritionStat.findById(id);
+                const stat = await AttritionStat.find({
+                    _id : product._id,
+                });
             return {
                 ...attrition._doc,
                 stat,

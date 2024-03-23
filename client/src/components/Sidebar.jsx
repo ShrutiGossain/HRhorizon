@@ -41,7 +41,7 @@ const navItems = [
     icon: null,
   },
   {
-    text: "Attrition",
+    text: "Attritions",
     icon: <PeopleAltOutlined />,
   },
   {
