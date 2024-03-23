@@ -20,6 +20,9 @@
     "helmet": "^7.1.0",
     "mongoose": "^8.2.0",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "query": "^0.2.0",
+    "react": "^18.2.0",
+    "toolkit": "^1.5.4"
   }
 }

@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(   
+  // first make User Schema then go to controllers general.js
   {
     Department: String,
     Gender : String,
