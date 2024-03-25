@@ -38,3 +38,14 @@ export const dataList = [
   Education: "Associates Degree"
   }
 ]
+
+export const dataOverallStat = [
+  {
+    _id : "65fe96d33253b6f300006ef3",
+    "Total Working Years" : Number,
+    "Years At Company": Number ,
+    "Years In Current Role" : Number,
+    "Years Since Last Promotion" : Number,
+    "Years With Curr Manager" : Number,
+  }
+]

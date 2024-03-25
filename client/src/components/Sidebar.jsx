@@ -15,10 +15,8 @@ import {
   ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
-  // ShoppingCartOutlined,
   Groups2Outlined,
-  // ReceiptLongOutlined,
-  PublicOutlined,
+  ReceiptLongOutlined,
   PointOfSaleOutlined,
   TodayOutlined,
   CalendarMonthOutlined,
@@ -50,11 +48,7 @@ const navItems = [
   },
   {
     text: "Lists",
-    icon: <Groups2Outlined />,
-  },
-  {
-    text: "Geography",
-    icon: <PublicOutlined />,
+    icon: <ReceiptLongOutlined />,
   },
   {
     text: "Employee Info",
@@ -190,8 +184,6 @@ const Sidebar = ({
               })}
             </List>
           </Box>
-
-          
         </Drawer>
       )}
     </Box>

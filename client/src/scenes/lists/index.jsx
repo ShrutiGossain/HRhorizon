@@ -32,12 +32,12 @@ const columns = [
       {
         field: "Attrition",
         headerName: "Attrition",
-        flex: 1,
+        flex: 0.5,
       },
     {
         field: "Department",
         headerName: "Department",
-        flex: 0.5,
+        flex: 1,
     },
     {
         field: "Gender",
