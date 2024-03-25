@@ -27,3 +27,14 @@ export const dataAttritionStat =[
     Education : "Associates Degree",
   }
 ]
+
+export const dataList = [
+  {
+  _id : "65fe96d33253b6f300006ef3",
+  Attrition : "Yes",
+  Department: "Sales",
+  Gender: "Female",
+  Age: 41,
+  Education: "Associates Degree"
+  }
+]

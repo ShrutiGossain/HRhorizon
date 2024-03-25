@@ -7,6 +7,8 @@ import { themeSettings } from "theme";
 import { Attritions } from 'scenes/attritions';
 import Layout from "scenes/layout";
 import Dashboard from "scenes/dashboard";
+import Employees from "scenes/employees";
+import Lists from "scenes/lists";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -21,6 +23,8 @@ function App() {
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/attritions" element={<Attritions />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/lists" element={<Lists />} />
               </Route>
           </Routes>
         </ThemeProvider>

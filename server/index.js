@@ -16,6 +16,8 @@ import salesRoutes from "./routes/sales.js";
 // import Attrition from "./models/Attrition.js";
 // import AttritionStat from "./models/AttritionStat.js";
 // import { dataAttrition, dataAttritionStat } from "./data/index.js";
+// import List from "./models/List.js";
+// import { dataList } from "./data/index.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -49,6 +51,7 @@ mongoose
     // User.insertMany(dataUser);
     // Attrition.insertMany(dataAttrition);
     // AttritionStat.insertMany(dataAttritionStat);
+    // List.insertMany(dataList);
     
   })
   .catch((error) => console.log(`${error} did not connect`));

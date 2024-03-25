@@ -49,6 +49,10 @@ const navItems = [
     icon: <Groups2Outlined />,
   },
   {
+    text: "Lists",
+    icon: <Groups2Outlined />,
+  },
+  {
     text: "Geography",
     icon: <PublicOutlined />,
   },
