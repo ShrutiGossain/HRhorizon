@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const AttritionSchema = new mongoose.Schema(
   { 
-    Attrition: String,
+    "Attrition": String,
   },
   { timestamps: true }
 );

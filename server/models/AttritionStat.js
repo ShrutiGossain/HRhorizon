@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const AttritionStatSchema = new mongoose.Schema(
   {
-    Attrition: String,
-    Department : String,
-    Gender : String,
-    Age: Number,
+    "Attrition": String,
+    "Department" : String,
+    "Gender" : String,
+    "Age": Number,
   },
   { timestamps: true }
 );

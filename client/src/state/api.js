@@ -4,7 +4,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   reducerPath: "adminApi",
   tagTypes: [
-    "User", "Attritions" , "Employees", "Lists" 
+    "User", "Attritions" , "Employees", "Lists" , "Stats"
   ],
   endpoints: (build) => ({
     getUser: build.query({
@@ -31,9 +31,17 @@ export const api = createApi({
     providesTags: ["Lists"],
   }),
 
+  getStats : build.query({
+    query : () => "stats/stats",
+    provideTags : ["Stats"]
+  })
 })
 });
 
 export const {
-  useGetUserQuery, useGetAttritionsQuery , useGetEmployeesQuery , useGetListsQuery
+  useGetUserQuery, 
+  useGetAttritionsQuery,
+  useGetEmployeesQuery,
+  useGetListsQuery,
+  useGetStatsQuery
 } = api;

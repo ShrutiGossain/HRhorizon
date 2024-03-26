@@ -1,5 +1,5 @@
-import Attrition from "../models/Attrition";
-import AttritionStat from "../models/AttritionStat";
+import Attrition from "../models/Attrition.js";
+import AttritionStat from "../models/AttritionStat.js";
 import User from "../models/User.js";
 import List from "../models/List.js";
 
@@ -10,7 +10,7 @@ export const getAttritions = async (req, res) => {
         const attritionsWithStats = await Promise.all(
             attritions.map(async (attrition) => {
                 const stat = await AttritionStat.find({
-                    _id : product._id,
+                    _id : attrition._id,
                 });
             return {
                 ...attrition._doc,
@@ -28,7 +28,7 @@ export const getAttritions = async (req, res) => {
 
 export const getEmployees = async(req, res) => {
     try{
-        const employees = await User.find({ role : "user"}).select("-password");
+        const employees = await User.find({ Department : "Sales"}).select("-password");
         res.status(200).json(employees);
     }
     catch (error) {
@@ -56,7 +56,7 @@ export const getLists = async(req, res) => {
       const lists = await List.find({
         $or: [
 
-          { userId: { $regex: new RegExp(search, "i") } },
+          { Department : "Sales" },
         ],
       })
         .sort(sortFormatted)
@@ -64,7 +64,7 @@ export const getLists = async(req, res) => {
         .limit(pageSize);
 
         const total = await List.countDocuments({
-            name: { $regex: search, $options: "i" },
+            Department: "Sales",
           });
 
           res.status(200).json({

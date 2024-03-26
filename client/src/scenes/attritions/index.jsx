@@ -35,12 +35,13 @@ const Att = ({
           color={theme.palette.secondary[700]}
           gutterBottom
         >
+          {_id}
           {Attrition}
         </Typography>
       </CardContent>
       <CardActions>
         <Button
-          variant="primary"
+          variant="contained"
           size="small"
           onClick={() => setIsExpanded(!isExpanded)}
         >
@@ -87,7 +88,7 @@ export const Attritions = () => {
             <Att
               key={_id}
               _id={_id}
-              attrition={Attrition} 
+              Attrition={Attrition} 
               stat={stat}
             />
           ))}
@@ -100,4 +101,3 @@ export const Attritions = () => {
 };
 
 export default Attritions;
-

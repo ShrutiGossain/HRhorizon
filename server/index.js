@@ -8,7 +8,7 @@ import morgan from "morgan";
 import clientRoutes from "./routes/client.js";
 import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
-import salesRoutes from "./routes/sales.js";
+import statsRoutes from "./routes/stats.js";
 
 // // data imports
 // import User from "./models/User.js";   // to import schema
@@ -36,7 +36,7 @@ app.use(cors());
 app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
-app.use("/sales", salesRoutes);
+app.use("/stats", statsRoutes);
 
 
 /* MONGOOSE SETUP */
