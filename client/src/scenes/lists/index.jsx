@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useGetListsQuery } from "state/api";
@@ -21,42 +21,42 @@ const Lists = () => {
     sort: JSON.stringify(sort),
     search,
   });
-//   console.log("data", data);
+  console.log("data", data);
 
-const columns = [
+  const columns = [
     {
-        field: "_id",
-        headerName: "User ID",
-        flex: 1,
-      },
-      {
-        field: "Attrition",
-        headerName: "Attrition",
-        flex: 0.5,
-      },
-    {
-        field: "Department",
-        headerName: "Department",
-        flex: 1,
+      field: "_id",
+      headerName: "User ID",
+      flex: 1,
     },
     {
-        field: "Gender",
-        headerName: "Gender",
-        flex: 0.5,
+      field: "Attrition",
+      headerName: "Attrition",
+      flex: 0.5,
     },
     {
-        field: "Age",
-        headerName: "Age",
-        flex: 0.5,
+      field: "Department",
+      headerName: "Department",
+      flex: 1,
     },
     {
-        field: "Education",
-        headerName: "Education",
-        flex: 0.5,
+      field: "Gender",
+      headerName: "Gender",
+      flex: 0.5,
     },
-]
+    {
+      field: "Age",
+      headerName: "Age",
+      flex: 0.5,
+    },
+    {
+      field: "Education",
+      headerName: "Education",
+      flex: 0.5,
+    },
+  ];
 
-return (
+  return (
     <Box m="1.5rem 2.5rem">
       <Header title="Employees List" subtitle="Entire details of Employees" />
       <Box
@@ -70,7 +70,7 @@ return (
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[100],
+            color: theme.palette.secondary[50],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
@@ -78,7 +78,7 @@ return (
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[100],
+            color: theme.palette.secondary[50],
             borderTop: "none",
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
@@ -93,6 +93,7 @@ return (
           columns={columns}
           rowCount={(data && data.total) || 0}
           rowsPerPageOptions={[20, 50, 100]}
+          // materils UI--> react data grid--> server side
           pagination
           page={page}
           pageSize={pageSize}

@@ -5,6 +5,7 @@ const UserSchema = new mongoose.Schema(
   {
     "Department": String,
     "Gender" : String,
+    "Over18" : String,
     "Age" : Number, 
     "Education" : String,
   },

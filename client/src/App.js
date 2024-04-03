@@ -10,6 +10,7 @@ import Dashboard from "scenes/dashboard";
 import Employees from "scenes/employees";
 import Lists from "scenes/lists";
 import Overview from "scenes/overview";
+import Performance from "scenes/performance";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -27,6 +28,7 @@ function App() {
               <Route path="/employees" element={<Employees />} />
               <Route path="/lists" element={<Lists />} />
               <Route path="/overview" element={<Overview />} />
+              <Route path="/performance" element={<Performance />} />
               </Route>
           </Routes>
         </ThemeProvider>

@@ -20,6 +20,8 @@ import statsRoutes from "./routes/stats.js";
 // import { dataList } from "./data/index.js";
 // import OverallStat from "./models/OverallStat.js";
 // import {dataOverallStat} from './data/index.js';
+// import AffiliateStat from "./models/AffiliateStat.js";
+// import {dataAffiliateStat} from './data/index.js';
 
 /* CONFIGURATION */
 dotenv.config();
@@ -55,6 +57,8 @@ mongoose
     // AttritionStat.insertMany(dataAttritionStat);
     // List.insertMany(dataList);
     // OverallStat.insertMany(dataOverallStat);
+    // AffiliateStat.insertMany(dataAffiliateStat);
+
     
   })
   .catch((error) => console.log(`${error} did not connect`));

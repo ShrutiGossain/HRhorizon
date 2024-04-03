@@ -28,7 +28,7 @@ export const getAttritions = async (req, res) => {
 
 export const getEmployees = async(req, res) => {
     try{
-        const employees = await User.find({ Department : "Sales"}).select("-password");
+        const employees = await User.find({ Over18 : "Y"}).select("-password");
         res.status(200).json(employees);
     }
     catch (error) {
@@ -36,43 +36,40 @@ export const getEmployees = async(req, res) => {
       }
 }
 
-export const getLists = async(req, res) => {
-    try{
-        // sort should look like this: { "field": "userId", "sort": "desc"}
-        const { page = 1, pageSize = 20, sort = null, search = "" } = req.query;
+export const getLists = async (req, res) => {
+  try {
+    // sort should look like this: { "field": "userId", "sort": "desc"}
+    const { page = 1, pageSize = 20, sort = null, search = "" } = req.query; // getting from frontend; using req.query
 
-        // formatted sort should look like { userId: -1 }
+    // formatted sort should look like { userId: -1 }
     const generateSort = () => {
-        const sortParsed = JSON.parse(sort);
-        const sortFormatted = {
-          [sortParsed.field]: (sortParsed.sort = "asc" ? 1 : -1),
-        };
-  
-        return sortFormatted;
+      const sortParsed = JSON.parse(sort);  // req.query sends the data in string, so we need to convert it into object.
+      const sortFormatted = {
+        [sortParsed.field]: (sortParsed.sort = "asc" ? 1 : -1),
       };
 
-      const sortFormatted = Boolean(sort) ? generateSort() : {};
+      return sortFormatted;
+    };
+    const sortFormatted = Boolean(sort) ? generateSort() : {};  // if sort exists, then call generateSort otherwise don't do anything
 
-      const lists = await List.find({
-        $or: [
+    const lists = await List.find({
+      $or: [
+        { userId: { $regex: new RegExp(search, "i") } },
+      ],
+    })
+      .sort(sortFormatted)
+      .skip(page * pageSize)
+      .limit(pageSize);
 
-          { Department : "Sales" },
-        ],
-      })
-        .sort(sortFormatted)
-        .skip(page * pageSize)
-        .limit(pageSize);
+    const total = await List.countDocuments({
+      name: { $regex: search, $options: "i" },
+  });
 
-        const total = await List.countDocuments({
-            Department: "Sales",
-          });
-
-          res.status(200).json({
-            lists,
-            total,
-          });
-    }
-    catch (error) {
-        res.status(404).json({ message: error.message });  // otherwise throws error.
-      }
-}
+    res.status(200).json({
+      lists,
+      total,
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
