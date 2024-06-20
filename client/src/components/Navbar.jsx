@@ -1,30 +1,30 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import {
-  DarkModeOutlined,
   LightModeOutlined,
-  ArrowDropDownOutlined,
+  DarkModeOutlined,
   Menu as MenuIcon,
   Search,
   SettingsOutlined,
+  ArrowDropDownOutlined,
 } from "@mui/icons-material";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
-import profileImage from 'assets/profile.jpeg'
+import profileImage from "assets/profile.jpeg";
 import {
-  Box,
   AppBar,
   Button,
+  Box,
   Typography,
   IconButton,
   InputBase,
   Toolbar,
-  useTheme,
   Menu,
   MenuItem,
+  useTheme,
 } from "@mui/material";
 
-const Navbar = ({user, isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
@@ -61,27 +61,28 @@ const Navbar = ({user, isSidebarOpen, setIsSidebarOpen }) => {
         </FlexBetween>
 
         {/* RIGHT SIDE */}
-        <FlexBetween gap="1.3rem">
-          <IconButton onClick={() => dispatch(setMode)}>
-            {theme.palette.mode === 'dark' ? (
-              <DarkModeOutlined sx={{fontSize: '25px' }} />
+        <FlexBetween gap="1.5rem">
+          <IconButton onClick={() => dispatch(setMode())}>
+            {theme.palette.mode === "dark" ? (
+              <DarkModeOutlined sx={{ fontSize: "25px" }} />
             ) : (
-              <LightModeOutlined sx={{fontSize: '25px'}} />
+              <LightModeOutlined sx={{ fontSize: "25px" }} />
             )}
           </IconButton>
           <IconButton>
-            <SettingsOutlined sx={{fontSize: '25px'}} />
+            <SettingsOutlined sx={{ fontSize: "25px" }} />
           </IconButton>
 
           <FlexBetween>
-            <Button onClick={handleClick}
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              textTransform: "none",
-              gap: "1rem",
-            }}
+            <Button
+              onClick={handleClick}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                textTransform: "none",
+                gap: "1rem",
+              }}
             >
               <Box
                 component="img"
@@ -92,30 +93,25 @@ const Navbar = ({user, isSidebarOpen, setIsSidebarOpen }) => {
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
-
-                <Box textAlign="left">
+              <Box textAlign="left">
                 <Typography
                   fontWeight="bold"
                   fontSize="0.85rem"
                   sx={{ color: theme.palette.secondary[100] }}
                 >
-                  
-                  {"Shruti"}
+                  {user.name}
                 </Typography>
                 <Typography
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  
-                  {"Developer"}
+                  {user.occupation}
                 </Typography>
               </Box>
-
               <ArrowDropDownOutlined
                 sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
               />
             </Button>
-
             <Menu
               anchorEl={anchorEl}
               open={isOpen}
@@ -124,10 +120,9 @@ const Navbar = ({user, isSidebarOpen, setIsSidebarOpen }) => {
             >
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
-
           </FlexBetween>
         </FlexBetween>
-</Toolbar>
+      </Toolbar>
     </AppBar>
   );
 };

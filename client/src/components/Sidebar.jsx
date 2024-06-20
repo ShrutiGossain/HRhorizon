@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Box,
+  Divider,
   Drawer,
   IconButton,
   List,
@@ -15,15 +16,16 @@ import {
   ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
+  // ShoppingCartOutlined,
   Groups2Outlined,
   ReceiptLongOutlined,
+  PublicOutlined,
   PointOfSaleOutlined,
   TodayOutlined,
   CalendarMonthOutlined,
   AdminPanelSettingsOutlined,
   TrendingUpOutlined,
   PieChartOutlined,
-  PeopleAltOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -39,25 +41,29 @@ const navItems = [
     icon: null,
   },
   {
-    text: "Attritions",
-    icon: <PeopleAltOutlined />,
+    text: "Products",
+    icon: <PointOfSaleOutlined />,
   },
   {
     text: "Employees",
     icon: <Groups2Outlined />,
   },
   {
-    text: "Lists",
+    text: "List",
     icon: <ReceiptLongOutlined />,
   },
   {
-    text: "Employee Info",
-    icon: null,
+    text: "Geography",
+    icon: <PublicOutlined />,
   },
   {
     text: "Overview",
-    icon: <PointOfSaleOutlined />,
+    icon: null,
   },
+  // {
+  //   text: "Overview",
+  //   icon: <PointOfSaleOutlined />,
+  // },
   {
     text: "Daily",
     icon: <TodayOutlined />,
@@ -183,6 +189,11 @@ const Sidebar = ({
                 );
               })}
             </List>
+          </Box>
+
+          <Box position="absolute" bottom="2rem">
+            <Divider />
+            
           </Box>
         </Drawer>
       )}

@@ -1,13 +1,59 @@
 import User from "../models/User.js";
+import OverallStat from "../models/OverallStat.js";
+import List from "../models/List.js";
 
 export const getUser = async (req, res) => {
   try {
-    const { id } = req.params;    // finding info on the basis of id
-    const user = await User.findById(id);   //  grab the user info by finding User through id.
-    res.status(200).json(user);   // sending user info to the frontend
+    const { id } = req.params;
+    const user = await User.findById(id);
+    res.status(200).json(user);
   } catch (error) {
-    res.status(404).json({ message: error.message });  // otherwise throws error.
+    res.status(404).json({ message: error.message });
   }
-}
+};
 
-//  finding by id, id is fetched here through routes general.js
+export const getDashboardStats = async (req, res) => {
+  try {
+    // hardcoded values
+    const currentMonth = "November";
+    const currentYear = 2021;
+    const currentDay = "2021-11-15";
+
+    /* Recent Lists */
+    const lists = await List.find()
+      .limit(50)
+      .sort({ createdOn: -1 });
+
+    /* Overall Stats */
+    const overallStat = await OverallStat.find({ year: currentYear });
+
+    const {
+      totalEmployees,
+      yearlyTotalSoldUnits,
+      yearlySalesTotal,
+      monthlyData,
+      salesByCategory,
+    } = overallStat[0];
+
+    const thisMonthStats = overallStat[0].monthlyData.find(({ month }) => {
+      return month === currentMonth;
+    });
+
+    const todayStats = overallStat[0].dailyData.find(({ date }) => {
+      return date === currentDay;
+    });
+
+    res.status(200).json({
+      totalEmployees,
+      yearlyTotalSoldUnits,
+      yearlySalesTotal,
+      monthlyData,
+      salesByCategory,
+      thisMonthStats,
+      todayStats,
+      lists,
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};

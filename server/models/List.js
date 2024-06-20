@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 
-const ListSchema = new mongoose.Schema(   
+const ListSchema = new mongoose.Schema(
   {
-    "Attrition" : String,
-    "Department": String,
-    "Gender" : String,
-    "Age" : Number, 
-    "Education" : String,
+    userId: String,
+    salary: String,
+    products: {
+      type: [mongoose.Types.ObjectId],
+      of: Number,
+    },
   },
   { timestamps: true }
 );

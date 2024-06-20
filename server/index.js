@@ -8,20 +8,24 @@ import morgan from "morgan";
 import clientRoutes from "./routes/client.js";
 import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
-import statsRoutes from "./routes/stats.js";
+import salesRoutes from "./routes/sales.js";
 
-// // data imports
-// import User from "./models/User.js";   // to import schema
-// import { dataUser } from "./data/index.js";  // to import data user
-// import Attrition from "./models/Attrition.js";
-// import AttritionStat from "./models/AttritionStat.js";
-// import { dataAttrition, dataAttritionStat } from "./data/index.js";
-// import List from "./models/List.js";
-// import { dataList } from "./data/index.js";
-// import OverallStat from "./models/OverallStat.js";
-// import {dataOverallStat} from './data/index.js';
-// import AffiliateStat from "./models/AffiliateStat.js";
-// import {dataAffiliateStat} from './data/index.js';
+// data imports
+import User from "./models/User.js";
+import Product from "./models/Product.js";
+import ProductStat from "./models/ProductStat.js";
+import OverallStat from "./models/OverallStat.js";
+import AffiliateStat from "./models/AffiliateStat.js";
+import List from "./models/List.js";
+import {
+  dataUser,
+  dataProduct,
+  dataProductStat,
+  dataOverallStat,
+  dataAffiliateStat,
+  dataList
+} from "./data/index.js";
+
 
 /* CONFIGURATION */
 dotenv.config();
@@ -38,8 +42,7 @@ app.use(cors());
 app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
-app.use("/stats", statsRoutes);
-
+app.use("/sales", salesRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
@@ -51,14 +54,12 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
-    /* ONLY ADD DATA ONE TIME */
-    // User.insertMany(dataUser);
-    // Attrition.insertMany(dataAttrition);
-    // AttritionStat.insertMany(dataAttritionStat);
-    // List.insertMany(dataList);
-    // OverallStat.insertMany(dataOverallStat);
+    // /* ONLY ADD DATA ONE TIME */
     // AffiliateStat.insertMany(dataAffiliateStat);
-
-    
+    // OverallStat.insertMany(dataOverallStat);
+    // Product.insertMany(dataProduct);
+    // ProductStat.insertMany(dataProductStat);
+    // List.insertMany(dataList);
+    // User.insertMany(dataUser);
   })
   .catch((error) => console.log(`${error} did not connect`));

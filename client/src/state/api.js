@@ -4,45 +4,68 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   reducerPath: "adminApi",
   tagTypes: [
-    "User", "Attritions" , "Employees", "Lists" , "Stats", "Performance"
+    "User",
+    "Products",
+    "Employees",
+    "Lists",
+    "Geography",
+    "Sales",
+    "Admins",
+    "Performance",
+    "Dashboard",
   ],
   endpoints: (build) => ({
     getUser: build.query({
       query: (id) => `general/user/${id}`,
       providesTags: ["User"],
     }),
-
-    getAttritions: build.query({
-      query: () => "client/attritions",
-      provideTags: ["Attritions"],
+    getProducts: build.query({
+      query: () => "client/products",
+      providesTags: ["Products"],
     }),
-
-    getEmployees : build.query({
-    query: () => "client/employees",
-    provideTags: ["Employees"],
-  }),
-
-  getLists: build.query({
-    query: ({ page, pageSize, sort, search }) => ({
-      url: "client/lists",
-      method: "GET",
-      params: { page, pageSize, sort, search },
+    getEmployees: build.query({
+      query: () => "client/employees",
+      providesTags: ["Employees"],
     }),
-    providesTags: ["Lists"],
+    getLists: build.query({
+      query: ({ page, pageSize, sort, search }) => ({
+        url: "client/lists",
+        method: "GET",
+        params: { page, pageSize, sort, search },
+      }),
+      providesTags: ["List"],
+    }),
+    getGeography: build.query({
+      query: () => "client/geography",
+      providesTags: ["Geography"],
+    }),
+    getSales: build.query({
+      query: () => "sales/sales",
+      providesTags: ["Sales"],
+    }),
+    getAdmins: build.query({
+      query: () => "management/admins",
+      providesTags: ["Admins"],
+    }),
+    getUserPerformance: build.query({
+      query: (id) => `management/performance/${id}`,
+      providesTags: ["Performance"],
+    }),
+    getDashboard: build.query({
+      query: () => "general/dashboard",
+      providesTags: ["Dashboard"],
+    }),
   }),
-
-  getUserPerformance : build.query({
-    query: () => "management/performance",
-    provideTags: ["Performance"],
-  }),
-})
 });
 
 export const {
-  useGetUserQuery, 
-  useGetAttritionsQuery,
+  useGetUserQuery,
+  useGetProductsQuery,
   useGetEmployeesQuery,
   useGetListsQuery,
-  useGetStatsQuery,
-  useGetUserPerformanceQuery
+  useGetGeographyQuery,
+  useGetSalesQuery,
+  useGetAdminsQuery,
+  useGetUserPerformanceQuery,
+  useGetDashboardQuery,
 } = api;

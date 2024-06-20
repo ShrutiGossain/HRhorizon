@@ -8,57 +8,54 @@ import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 const Lists = () => {
   const theme = useTheme();
 
+  // values to be sent to the backend
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(20);
   const [sort, setSort] = useState({});
   const [search, setSearch] = useState("");
 
   const [searchInput, setSearchInput] = useState("");
-
   const { data, isLoading } = useGetListsQuery({
     page,
     pageSize,
     sort: JSON.stringify(sort),
     search,
   });
-  console.log("data", data);
 
   const columns = [
     {
       field: "_id",
+      headerName: "ID",
+      flex: 1,
+    },
+    {
+      field: "userId",
       headerName: "User ID",
       flex: 1,
     },
     {
-      field: "Attrition",
-      headerName: "Attrition",
-      flex: 0.5,
-    },
-    {
-      field: "Department",
-      headerName: "Department",
+      field: "createdAt",
+      headerName: "CreatedAt",
       flex: 1,
     },
     {
-      field: "Gender",
-      headerName: "Gender",
+      field: "performance",
+      headerName: "Rating",
       flex: 0.5,
+      sortable: false,
+      renderCell: (params) => params.value.length,
     },
     {
-      field: "Age",
-      headerName: "Age",
-      flex: 0.5,
-    },
-    {
-      field: "Education",
-      headerName: "Education",
-      flex: 0.5,
+      field: "salary",
+      headerName: "Salary",
+      flex: 1,
+      renderCell: (params) => `${Number(params.value).toFixed(2)}`,
     },
   ];
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="Employees List" subtitle="Entire details of Employees" />
+      <Header title="List of Employees" subtitle="Entire list of employees" />
       <Box
         height="80vh"
         sx={{
@@ -70,7 +67,7 @@ const Lists = () => {
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[50],
+            color: theme.palette.secondary[100],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
@@ -78,7 +75,7 @@ const Lists = () => {
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[50],
+            color: theme.palette.secondary[100],
             borderTop: "none",
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
@@ -93,7 +90,6 @@ const Lists = () => {
           columns={columns}
           rowCount={(data && data.total) || 0}
           rowsPerPageOptions={[20, 50, 100]}
-          // materils UI--> react data grid--> server side
           pagination
           page={page}
           pageSize={pageSize}
