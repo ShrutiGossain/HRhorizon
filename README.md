@@ -2,7 +2,7 @@
 
 <div align="center">
   
-<img width="242" alt="image" src="https://github.com/ShrutiGossain/HRhorizon/assets/130658216/1b5e01eb-4771-4a79-97be-9e47ecaab361/logo-removebg-preview">
+<img width="242" alt="image" src="C:\Users\shrut\OneDrive\Desktop\HRlogo.png">
 
 </div>
 
