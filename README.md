@@ -2,7 +2,7 @@
 
 <div align="center">
   
-<img width="242" alt="image" src="C:\Users\shrut\OneDrive\Desktop\HRlogo.png">
+<img width="242" alt="image" src="client/public/favicon.ico">
 
 </div>
 
